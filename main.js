@@ -35,12 +35,18 @@ function generateHtmlFunc(res) {
         <div class="item">
              <img src="${res.recipe.image}" alt="">
             <div class="flex_container">
-                <h1 class="title">This is a Recipe</h1>
-                <a href="#" class="view">View Recipe</a>
+                <h1 class="title">${res.recipe.label}</h1>
+                <a href="${res.recipe.url}" class="view">View Recipe</a>
             </div>
             <p class="item_data">
-                Calories:
+                Calories:${res.recipe.calories.toFixed(2)}
             </p>
+            <p class="item_data">
+            Diet Label:${res.recipe.dietLabels.length > 0 ? res.recipe.dietLabels : 'No Data Found'}
+        </p>
+        <p class="item_data">
+        Health Label:${res.recipe.healthLabels}
+    </p>
     </div>
         `
         searchResultDiv.innerHTML = generateHtml
