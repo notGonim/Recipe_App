@@ -29,9 +29,22 @@ async function fetchApi() {
 function generateHtmlFunc(res) {
 
     let generateHtml = ''
+    if (res.length < 1) {
+        generateHtml += `
+        <div class="item">
+            <div class="flex_container">
+            <p class="item_data">
+                No Recipe For Your Meal SORRY :(
+            </p>
+            </div>
+        </div>`
+
+        searchResultDiv.innerHTML = generateHtml
+        
+
+    }
     res.map(res => {
         generateHtml += `
-        
         <div class="item">
              <img src="${res.recipe.image}" alt="">
             <div class="flex_container">
