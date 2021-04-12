@@ -19,7 +19,7 @@ searchForm.addEventListener('submit', (e) => {
 
 async function fetchApi() {
 
-    const baseUrl = `https://api.edamam.com/search?q=pizza&app_id=${app_id}&app_key=${api_key}&to=20`
+    const baseUrl = `https://api.edamam.com/search?q=${searchQuery}&app_id=${app_id}&app_key=${api_key}&to=20`
     const res = await fetch(baseUrl)
     const data = await res.json()
     generateHtmlFunc(data.hits)
